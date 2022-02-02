@@ -241,7 +241,7 @@ def main(args):
     image = Image.open(requests.get(url, stream=True).raw)
 
     transformations = transforms.Compose(
-        [transforms.Resize(args.input_size, args.input_size),
+        [transforms.Resize((args.input_size, args.input_size)),
          transforms.ToTensor(),
          transforms.Normalize(mean=IMAGENET_DEFAULT_MEAN, std=IMAGENET_DEFAULT_STD)
         ]
